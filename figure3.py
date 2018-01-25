@@ -54,10 +54,10 @@ def draw(l1, l2):
 	timeline = [1,2,3,4,5,6,7,8]
         
 	colors = ['r','b','y','m','c','g','r','b','y']
-	styles = ['-.', '--', ':', '-', 'D:', 'p:', 'x:','*:']
+	styles = ['o--', 's-.', ':', '-', 'D:', 'p:', 'x:','*:']
 	linelabels = ["with \nLive Update", "without \nLive Update", "dynamic","HP,FW","FM,FW","FM,HP,FW"]
-	ax1.plot(timeline, l1, label="New rte_packet", linewidth=3)
-	ax1.plot(timeline, l2, label="Baseline", linewidth=3)
+	ax1.plot(timeline, l1, 'o--',label="New rte_packet",markersize=10, linewidth=3)
+	ax1.plot(timeline, l2, 's-.',label="Baseline",markersize=10, linewidth=3)
 	
 	ax1.set_ylabel('Throughput(Mpkts/s)', fontsize=20, style='normal', color='black')
 	ax1.set_xlabel('# of cores', fontsize=20, style="normal", color='black')
