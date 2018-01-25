@@ -51,16 +51,16 @@ def draw(l1, l2):
 
 	fig = plt.figure(1)
 	length=len(l1)
-	timeline = [2300000,2600000,2900000,3200000,3500000,3800000,4100000,4400000]
-        timeline1 = [2300000,2600000,2900000,3200000,3500000,3800000,4100000,4400000,4700000,5000000]
+	timeline = [2.3,2.6,2.9,3.2,3.5,3.8,4.1,4.4]
+        timeline1 = [2.3,2.6,2.9,3.2,3.5,3.8,4.1,4.4,4.7,5.0]
 	colors = ['r','b','y','m','c','g','r','b','y']
 	styles = ['-.', '--', ':', '-', 'D:', 'p:', 'x:','*:']
 	linelabels = ["with \nLive Update", "without \nLive Update", "dynamic","HP,FW","FM,FW","FM,HP,FW"]
 	ax1.plot(timeline, l1,  'r-.', label="Old packet", linewidth=3)
 	ax1.plot(timeline1, l2,  'b--', label="New rte_packet", linewidth=3)
 	
-	ax1.set_ylabel('Output throughput(pkts/s)', fontsize=25, style='normal', color='black')
-	ax1.set_xlabel('Input throughput(pkts/s)', fontsize=25, style="normal", color='black')
+	ax1.set_ylabel('Output throughput(Mpkts/s)', fontsize=25, style='normal', color='black')
+	ax1.set_xlabel('Input throughput(Mpkts/s)', fontsize=25, style="normal", color='black')
 
 	# Now add the legend with some customizations.
 	legend = ax1.legend(loc='upper left', shadow=False)
@@ -94,8 +94,8 @@ def main():
 	#tp1 = read_log("data_1")
 	#tp2 = read_log("data_2")
 	#tp1,tp2=read_data()
-	tp1=[2300000,2600000,2741632,2717824,2583232,2575775,2558560,2550560]
-        tp2=[2300000,2600000,2900000,3200000,3500000,3786016,3791264,3796160,3752672,3755312]
+	tp1=[2.3,2.6,2.741632,2.717824,2.583232,2.575775,2.558560,2.550560]
+        tp2=[2.3,2.6,2.9,3.2,3.5,3.786016,3.791264,3.796160,3.752672,3.755312]
 
 	draw(tp1,tp2) 
 
