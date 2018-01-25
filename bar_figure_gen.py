@@ -68,11 +68,11 @@ def draw():
 	labels= ["64","128","256","512","1024"]
 
 	width = 0.3
-	ax1.bar(x, opennf,width, label="Old seastar packet",  hatch="/")
-	ax1.bar(x+width,nfa,width, label="new seaster rte_packet", hatch="\\")
-        ax1.bar(x+width+width,base_line,width,label="Base line",hatch="=")
+	ax1.bar(x, opennf,width, label="Old seastar packet",  hatch="/",color='r')
+	ax1.bar(x+width,nfa,width, label="new seaster rte_packet", hatch="\\",color='y')
+        ax1.bar(x+width+width,base_line,width,label="Base line",hatch="=",color='b')
 
-	plt.xticks(x+0.5*width,labels)
+	plt.xticks(x+width,labels)
 	for tl in ax1.get_xticklabels():
 		tl.set_fontsize(20)
 		tl.set_fontstyle('normal')
@@ -81,7 +81,7 @@ def draw():
 		tl.set_fontstyle('normal')
 
 	# Now add the legend with some customizations.
-	legend = ax1.legend(loc='upper left', shadow=False)
+	legend = ax1.legend(loc='upper right', shadow=False)
 	# Set the fontsize
 	for label in legend.get_texts():
 		label.set_fontsize(20)
