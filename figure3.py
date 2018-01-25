@@ -56,8 +56,8 @@ def draw(l1, l2):
 	colors = ['r','b','y','m','c','g','r','b','y']
 	styles = ['-.', '--', ':', '-', 'D:', 'p:', 'x:','*:']
 	linelabels = ["with \nLive Update", "without \nLive Update", "dynamic","HP,FW","FM,FW","FM,HP,FW"]
-	ax1.plot(timeline, l1,  'r-.', label="New rte_packet", linewidth=3)
-	ax1.plot(timeline, l2,  'b--', label="Baseline", linewidth=3)
+	ax1.plot(timeline, l1, label="New rte_packet", linewidth=3)
+	ax1.plot(timeline, l2, label="Baseline", linewidth=3)
 	
 	ax1.set_ylabel('Throughput(Mpkts/s)', fontsize=20, style='normal', color='black')
 	ax1.set_xlabel('# of cores', fontsize=20, style="normal", color='black')
