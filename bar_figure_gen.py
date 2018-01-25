@@ -48,9 +48,10 @@ def read_data():
         return gpu,memory
 def draw():
 
-	opennf=[158,274]
+	opennf=[2705536,2632640,2500096,2277952,1192746]
 #	opennf=map(float,opennf)
-	nfa=[3,6]
+	nfa=[3803776,3801760,3489408,2332160,1192747]
+        base_line=[4171072,4155680,3486624,2332160,1192747]
 #	nfa=map(float,nfa)
 	
 	plt.style.use('ggplot')#seaborn-white')
@@ -63,12 +64,13 @@ def draw():
 	styles = ['-.', '--', ':', '-', '--', ':', '-','--']
 	index = 0;
 
-	x = np.arange(2)
-	labels= ["500","1000"]
+	x = np.arange(5)
+	labels= ["64","128","256","512","1024"]
 
 	width = 0.3
-	ax1.bar(x, opennf,width, label="OpenNF",  hatch="/")
-	ax1.bar(x+width,nfa,width, label="NFActor", hatch="\\")
+	ax1.bar(x, opennf,width, label="Old seastar packet",  hatch="/")
+	ax1.bar(x+width,nfa,width, label="new seaster rte_packet", hatch="\\")
+        ax1.bar(x+width+width,base_line,width,label="Base line",hatch="=")
 
 	plt.xticks(x+0.5*width,labels)
 	for tl in ax1.get_xticklabels():
@@ -87,9 +89,9 @@ def draw():
 	for label in legend.get_lines():
 		label.set_linewidth(3)  # the legend line width
 
-	plt.xlabel("# of flows", fontsize=25, style='normal', color='black')
-	plt.ylabel("Time(ms)", fontsize=25, style='normal', color='black')
-	plt.savefig("WA.pdf", bbox_inches='tight', pad_inches=0)
+	plt.xlabel("Packet Size(byte)", fontsize=25, style='normal', color='black')
+	plt.ylabel("Throughtput(pkts/s)", fontsize=25, style='normal', color='black')
+	plt.savefig("Raw_forwarding_performance.pdf", bbox_inches='tight', pad_inches=0)
 	plt.show()
 
 def main():
